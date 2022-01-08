@@ -1,0 +1,15 @@
+.vs_code
+a.out
+libft.a
+*.o
+a.out
+libft.a
+.idea
+.vsc*
+test_warmachine
+result.log
+libtf-war-machine
+test/Makefile
+test-war-machine
+libftTester
+test_libft
