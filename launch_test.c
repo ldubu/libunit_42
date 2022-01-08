@@ -1,17 +1,13 @@
+#include "./framework/framework.h"
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <unistd.h>
 #include <sys/wait.h>
 
-int affichage(void);
 
-int main(void) {
+int launch_test(t_unit_test *testlist, char *function_name) 
+{
     int a = -1;
-    int i = 0;
-
-    while (i < 5)
+    
+    while (testlist)
     {
         pid_t c_pid = fork();
         if (c_pid == -1) 
@@ -22,9 +18,9 @@ int main(void) {
 
         if (c_pid == 0) 
         {
-            affichage();
             printf("printed from child process - %d\n", getpid());
-            exit(EXIT_SUCCESS);
+            int l = testlist->f();
+            exit(l);
         } 
         else
         {
@@ -33,7 +29,8 @@ int main(void) {
             wait(NULL);
         }
         printf("test\n");
-        i++;
+        testlist=testlist->next;
     }   
     exit(EXIT_SUCCESS);
 }
+
