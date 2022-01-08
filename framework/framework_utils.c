@@ -19,3 +19,9 @@ t_unit_test	*ft_lstlast(t_unit_test *lst)
 			lst = lst->next;
 	return (lst);
 }
+
+void	ft_lstdelone(t_unit_test *lst, void (*del)(char *))
+{
+	del(lst->name);
+	free(lst);
+}

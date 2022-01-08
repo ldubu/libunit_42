@@ -1,0 +1,22 @@
+#include "../libft42/libft.h"
+#include "framework.h"
+
+void ft_output(t_unit_test **testlist, int result, char *function_test)
+{
+	char		*status;
+	t_unit_test	*temp;
+
+	if (result == 0)
+		status = "OK";
+	else if (result == -1)
+		status = "KO";
+	ft_putstr_fd(function_test, 1);
+	ft_putstr_fd(": ", 1);
+	ft_putstr_fd((*testlist)->name,1);
+	ft_putstr_fd(" : [", 1);
+	ft_putstr_fd(status, 1);
+	ft_putstr_fd("]\n",1);
+	temp = *testlist;
+	*testlist = (*testlist)->next;
+	ft_lstdelone(temp, &ft_delst);
+}
