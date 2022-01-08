@@ -8,8 +8,12 @@ void ft_output(t_unit_test **testlist, int result, char *function_test)
 
 	if (result == 0)
 		status = "OK";
-	else if (result == -1)
+	else if (result == 1)
 		status = "KO";
+	else if (result == 7)
+		status = "SIGBUS";
+	else if (result == 11)
+		status = "SIGSEGV";
 	ft_putstr_fd(function_test, 1);
 	ft_putstr_fd(": ", 1);
 	ft_putstr_fd((*testlist)->name,1);

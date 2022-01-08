@@ -4,6 +4,7 @@ SRC 	= 	../framework/framework_utils.c \
 			../framework/ft_delst.c \
 			../framework/ft_output.c \
 			../framework/load_test.c \
+			../framework/read_signal.c \
 			../launch_test.c \
 			main.c \
 			strlen/00_launcher.c \
@@ -19,7 +20,7 @@ OBJ		=	$(SRC:.c=.o)
 all: $(NAME)
 	
 $(NAME): $(OBJ)
-			gcc $(FLAGS) $(OBJ) -o $(NAME) -L. -lft
+			@gcc $(FLAGS) $(OBJ) -o $(NAME) -L. -lft
 		
 clean:
 			rm -rf $(OBJ)

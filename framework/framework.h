@@ -21,6 +21,7 @@ t_unit_test	*ft_lstlast(t_unit_test *lst);
 void	ft_lstdelone(t_unit_test *lst, void (*del)(char *));
 void	ft_delst(char *temp);
 void ft_output(t_unit_test **testlist, int result, char *function_test);
-int launch_test(t_unit_test *testlist, char *function_name);
+int launch_test(t_unit_test **testlist, char *function_name);
+int read_signal(int status);
 
 #endif

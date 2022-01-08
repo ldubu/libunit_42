@@ -3,7 +3,7 @@
 int	basic_test(void)
 {
 	int a = 24;
-	printf("ca marche !!!");
+	//printf("ca marche !!!");
 	if (a > 10)
 		return (0);
 	else
