@@ -1,38 +1,41 @@
-#include "./framework/framework.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   launch_test.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ldubuche <laura.dubuche@gmail.com>         +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/01/08 18:16:54 by ldubuche          #+#    #+#             */
+/*   Updated: 2022/01/08 18:32:25 by ldubuche         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-#include <sys/wait.h>
+#include "framework.h"
 
-
-int launch_test(t_unit_test **testlist, char *function_name) 
+int	launch_test(t_unit_test **testlist, char *function_name)
 {
-    int a = -1;
-    
-    while (*testlist)
-    {
-        pid_t c_pid = fork();
-        if (c_pid == -1) 
-        {
-            perror("fork");
-            exit(EXIT_FAILURE);
-        }
+	int		a;
+	pid_t	c_pid;
+	int		result;
 
-        if (c_pid == 0) 
-        {
-            //printf("printed from child process - %d\n", getpid());
-            int l = (*testlist)->f();
-            exit(l);
-        } 
-        else
-        {
-            wait(&a);
-            int result = read_signal(a);
-            ft_output(testlist, result, function_name);
-            //printf("printed from parent process - %d\n", getpid());
-            wait(NULL);
-        }
-        //printf("test\n");
-        //(*testlist)=(*testlist)->next;
-    }   
-    exit(EXIT_SUCCESS);
+	a = -1;
+	while (*testlist)
+	{
+		c_pid = fork();
+		if (c_pid == -1)
+		{
+			perror("fork");
+			exit(EXIT_FAILURE);
+		}
+		if (c_pid == 0)
+			exit((*testlist)->f());
+		else
+		{
+			wait(&a);
+			result = read_signal(a);
+			ft_output(testlist, result, function_name);
+			wait(NULL);
+		}
+	}
+	exit(EXIT_SUCCESS);
 }
-
