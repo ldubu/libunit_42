@@ -1,21 +1,16 @@
 NAME 	=	libunit.a
 
-SRC 	= 	../framework/framework_utils.c \
-			../framework/ft_delst.c \
-			../framework/ft_output.c \
-			../framework/load_test.c \
-			../framework/read_signal.c \
-			../launch_test.c \
-			main.c \
+CC = 		gcc
+
+RM =		rm -rf
+
+SRC 	= 	main.c \
 			strlen/00_launcher.c \
 			strlen/01_basic_test.c
 
-FLAGS	=	-Wall \
-			-Wextra \
-			-Werror \
+CFLAGS =	-Wall -Werror -Wextra
 
 OBJ		=	$(SRC:.c=.o)
-
 
 all: $(NAME)
 	
@@ -23,10 +18,10 @@ $(NAME): $(OBJ)
 			@gcc $(FLAGS) $(OBJ) -o $(NAME) -L. -lft
 		
 clean:
-			rm -rf $(OBJ)
+			@$(RM) $(OBJ)
 
 fclean: clean
-			rm -rf $(NAME)
+			@$(RM) $(NAME)
 
 re: fclean all
 
