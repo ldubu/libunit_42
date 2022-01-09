@@ -6,24 +6,20 @@
 /*   By: ldubuche <laura.dubuche@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/09 09:45:28 by ldubuche          #+#    #+#             */
-/*   Updated: 2022/01/09 10:38:37 by ldubuche         ###   ########.fr       */
+/*   Updated: 2022/01/09 15:24:30 by ldubuche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "dumb_function.h"
+#include "testeur.h"
 
-char	*dumb_function(char *str)
+char	*dumb_function(char *str, int len)
 {
-	char 	*s;
-	int 	i;
+	char	*s;
+	int		i;
 
-	s = "Bonjour";
+	s = (char *) malloc(sizeof(char) * len);
+	i = 0;
 	while (*str)
-	{
-		if (s[i] != *str)
-			s[i] = *str;
-		i++;
-		str++;
-	}
+		s[i++] = *str++;
 	return (s);
 }

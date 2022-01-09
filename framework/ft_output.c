@@ -6,14 +6,14 @@
 /*   By: ldubuche <laura.dubuche@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/08 18:43:17 by ldubuche          #+#    #+#             */
-/*   Updated: 2022/01/08 18:44:14 by ldubuche         ###   ########.fr       */
+/*   Updated: 2022/01/09 15:05:29 by ldubuche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft42/libft.h"
 #include "framework.h"
 
-void	ft_output(t_unit_test **testlist, int result, char *function_test)
+int	ft_output(t_unit_test **testlist, int result, char *function_test)
 {
 	char		*status;
 	t_unit_test	*temp;
@@ -35,4 +35,8 @@ void	ft_output(t_unit_test **testlist, int result, char *function_test)
 	temp = *testlist;
 	*testlist = (*testlist)->next;
 	ft_lstdelone(temp, &ft_delst);
+	if (result == 0)
+		return (1);
+	else
+		return (0);
 }

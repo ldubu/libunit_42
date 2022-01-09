@@ -6,7 +6,7 @@
 /*   By: ldubuche <laura.dubuche@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/08 18:40:23 by ldubuche          #+#    #+#             */
-/*   Updated: 2022/01/08 18:42:39 by ldubuche         ###   ########.fr       */
+/*   Updated: 2022/01/09 15:43:59 by ldubuche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include <sys/wait.h>
+# include "../libft42/libft.h"
 
 typedef struct unit_test
 {
@@ -26,7 +27,7 @@ typedef struct unit_test
 	struct unit_test	*next;
 }	t_unit_test;
 
-void		ft_output(t_unit_test **testlist, int result, char *function_test);
+int			ft_output(t_unit_test **testlist, int result, char *function_test);
 void		ft_lstadd_back(t_unit_test **alst, t_unit_test *new);
 void		ft_lstdelone(t_unit_test *lst, void (*del)(char *));
 void		load_test(t_unit_test **testlist, char *test_name,
@@ -37,5 +38,6 @@ t_unit_test	*ft_lstlast(t_unit_test *lst);
 
 int			launch_test(t_unit_test **testlist, char *function_name);
 int			read_signal(int status);
+int			ft_affiche(int success, int nbr);
 
 #endif

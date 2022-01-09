@@ -1,22 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   00_launcher.c                                      :+:      :+:    :+:   */
+/*   01_test_BUSERROR.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ldubuche <laura.dubuche@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/09 10:43:44 by ldubuche          #+#    #+#             */
-/*   Updated: 2022/01/09 15:28:13 by ldubuche         ###   ########.fr       */
+/*   Created: 2022/01/09 12:46:01 by ldubuche          #+#    #+#             */
+/*   Updated: 2022/01/09 15:33:09 by ldubuche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "tests.h"
 
-int	sigsegv_launcher(void)
+int	test_buserror(void)
 {
-	t_unit_test	*testlist;
+	int	i;
 
-	load_test(&testlist, "Test SIGSEGV", &test_sigsegv);
-	launch_test(&testlist, "SIGSEGV function");
-	return (1);
+	i = ft_buserror();
+	if (i == 0)
+		return (0);
+	else
+		return (-1);
 }
