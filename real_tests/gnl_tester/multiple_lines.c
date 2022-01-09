@@ -1,7 +1,18 @@
-#include "../get_next_line.h"
-#include "../../libft42/libft.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   multiple_lines.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lberrada <lberrada@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/01/09 16:36:29 by lberrada          #+#    #+#             */
+/*   Updated: 2022/01/09 16:39:51 by lberrada         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-int main(void)
+#include "gnl_tester.h"
+
+int multiple_lines(void)
 {
     int res;
 

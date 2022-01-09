@@ -1,7 +1,18 @@
-#include "../get_next_line.h"
-#include "../../libft42/libft.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   test_first_empty.c                                 :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lberrada <lberrada@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/01/09 16:52:43 by lberrada          #+#    #+#             */
+/*   Updated: 2022/01/09 16:53:04 by lberrada         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-int main(void)
+#include "gnl_tester.h"
+
+int test_first_empty(void)
 {
     int res;
 

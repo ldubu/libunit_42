@@ -3,17 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   basic_test.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ldubuche <laura.dubuche@gmail.com>         +#+  +:+       +#+        */
+/*   By: lberrada <lberrada@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/09 16:50:42 by ldubuche          #+#    #+#             */
-/*   Updated: 2022/01/09 17:36:55 by ldubuche         ###   ########.fr       */
+/*   Updated: 2022/01/09 18:10:20 by lberrada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
-#include "../get_next_line.h"
-
-int	test_compare(int fd, char *valeur_attendue); // ajouter header basic test dans .h
+#include "gnl_tester.h"
 
 int	basic_test(void)
 {

@@ -1,31 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   no_nl_line.c                                       :+:      :+:    :+:   */
+/*   test_compare.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lberrada <lberrada@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/09 16:50:42 by ldubuche          #+#    #+#             */
-/*   Updated: 2022/01/09 17:26:33 by lberrada         ###   ########.fr       */
+/*   Created: 2022/01/09 17:21:35 by lberrada          #+#    #+#             */
+/*   Updated: 2022/01/09 18:05:07 by lberrada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "gnl_tester.h"
 
-int	no_nl_line(void)
+int	test_compare(int fd, char *valeur_attendue)
 {
-	int	res;
-	int	fd;
+	char	*str;
 
-	fd = open("Files/no_nl_line.txt", O_RDONLY);
-	if (fd <= 0)
-		write(1, "fail to open file\n", 19);
-	res = test_compare(fd, "At suscipit aperiam et cupiditate dolores aut quam \
-	 odit non numquam nulla ut nesciunt omnis est placeat provident.");
-	if (res == -1)
+	str = get_next_line(fd);
+	if (valeur_attendue == NULL)
+	{
+		if (str == NULL)
+			return (0);
+		else
+		{
+			free(str);
+			return (-1);
+		}
+	}
+	if (ft_strncmp(valeur_attendue, str, ft_strlen(str)) == 0)
+	{
+		free(str);
+		return (0);
+	}
+	else
+	{
+		free(str);
 		return (-1);
-	res = test_compare(fd, NULL);
-	if (res == -1)
-		return (-1);
-	return (0);
+	}
 }

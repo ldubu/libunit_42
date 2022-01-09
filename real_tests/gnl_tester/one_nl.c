@@ -3,20 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   one_nl.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ldubuche <laura.dubuche@gmail.com>         +#+  +:+       +#+        */
+/*   By: lberrada <lberrada@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/09 16:50:42 by ldubuche          #+#    #+#             */
-/*   Updated: 2022/01/09 17:41:43 by ldubuche         ###   ########.fr       */
+/*   Updated: 2022/01/09 18:03:05 by lberrada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
-#include "../get_next_line.h"
-
-int	test_compare(int fd, char *valeur_attendue); // ajouter header one nl dans .h
+#include "gnl_tester.h"
 
 int	one_nl(void)
-{
+{	
 	int	res;
 	int	fd;
 
