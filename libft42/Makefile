@@ -1,3 +1,5 @@
+MAKEFLAGS = --silent
+
 CC = 		gcc
 
 CFLAGS =	-Wall -Werror -Wextra

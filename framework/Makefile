@@ -1,3 +1,4 @@
+MAKEFLAGS = --silent
 CC = 		gcc
 
 CFLAGS =	-Wall -Werror -Wextra
@@ -27,12 +28,11 @@ $(NAME): 	$(OBJ) libft
 all: 		$(NAME) 
 
 libft:
-			make -C ../libft42
-			cp ../libft42/libft.a .
-			mv libft.a $(NAME)
+			@make -C ../libft42
+			@cp ../libft42/libft.a .
+			@mv libft.a $(NAME)
 clean:
 			@$(RM) $(OBJ)
-			@make clean -C ../libft42
 
 fclean:		clean
 			@$(RM) $(NAME)

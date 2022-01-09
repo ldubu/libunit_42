@@ -7,3 +7,5 @@ libft.a
 .vsc*
 *libunit.a
 test
+dumb_function_test
+framework_test

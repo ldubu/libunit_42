@@ -6,7 +6,7 @@
 /*   By: ldubuche <laura.dubuche@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/08 18:16:54 by ldubuche          #+#    #+#             */
-/*   Updated: 2022/01/09 10:25:22 by ldubuche         ###   ########.fr       */
+/*   Updated: 2022/01/09 15:45:41 by ldubuche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,17 +16,16 @@ int	launch_test(t_unit_test **testlist, char *function_name)
 {
 	int		a;
 	pid_t	c_pid;
-	int		result;
+	int		test_success;
+	int		test_nbr;
 
 	a = -1;
+	test_nbr = 0;
+	test_success = 0;
 	while (*testlist)
 	{
+		test_nbr++;
 		c_pid = fork();
-		if (c_pid == -1)
-		{
-			perror("fork");
-			exit(EXIT_FAILURE);
-		}
 		if (c_pid == 0)
 		{
 			if ((*testlist)->f() == -1)
@@ -36,10 +35,21 @@ int	launch_test(t_unit_test **testlist, char *function_name)
 		else
 		{
 			wait(&a);
-			result = read_signal(a);
-			ft_output(testlist, result, function_name);
-			wait(NULL);
+			test_success += ft_output(testlist, read_signal(a), function_name);
 		}
 	}
-	exit(EXIT_SUCCESS);
+	return (ft_affiche(test_success, test_nbr));
+}
+
+int	ft_affiche(int success, int nbr)
+{
+	ft_putstr_fd("\n", 1);
+	ft_putnbr_fd(success, 1);
+	ft_putstr_fd("/", 1);
+	ft_putnbr_fd(nbr, 1);
+	ft_putstr_fd(" test succeed\n\n", 1);
+	if (nbr - success == 0)
+		return (0);
+	else
+		return (-1);
 }

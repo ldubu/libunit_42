@@ -1,22 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   00_launcher.c                                      :+:      :+:    :+:   */
+/*   tests.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ldubuche <laura.dubuche@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/09 10:43:44 by ldubuche          #+#    #+#             */
-/*   Updated: 2022/01/09 15:28:13 by ldubuche         ###   ########.fr       */
+/*   Created: 2022/01/09 11:17:51 by ldubuche          #+#    #+#             */
+/*   Updated: 2022/01/09 11:56:14 by ldubuche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "tests.h"
+#ifndef TESTS_H
+# define TESTS_H
 
-int	sigsegv_launcher(void)
-{
-	t_unit_test	*testlist;
+# include <string.h>
+# include <stdlib.h>
+# include "../../framework/framework.h"
+# include "../../libft42/libft.h"
+# include "../testeur.h"
 
-	load_test(&testlist, "Test SIGSEGV", &test_sigsegv);
-	launch_test(&testlist, "SIGSEGV function");
-	return (1);
-}
+int		test_ok(void);
+int		test_ko(void);
+
+#endif

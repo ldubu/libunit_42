@@ -1,22 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   00_launcher.c                                      :+:      :+:    :+:   */
+/*   testeur.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ldubuche <laura.dubuche@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/09 10:43:44 by ldubuche          #+#    #+#             */
-/*   Updated: 2022/01/09 15:28:13 by ldubuche         ###   ########.fr       */
+/*   Created: 2022/01/09 15:27:03 by ldubuche          #+#    #+#             */
+/*   Updated: 2022/01/09 15:27:19 by ldubuche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "tests.h"
+#ifndef TESTEUR_H
+# define TESTEUR_H
 
-int	sigsegv_launcher(void)
-{
-	t_unit_test	*testlist;
+# include <stdlib.h>
+# include <stdio.h>
+# include <sys/wait.h>
 
-	load_test(&testlist, "Test SIGSEGV", &test_sigsegv);
-	launch_test(&testlist, "SIGSEGV function");
-	return (1);
-}
+int		sigsegv_launcher(void);
+int		dumb_launcher(void);
+int		buserror_launcher(void);
+
+char	*ft_sigsegv(char *str);
+char	*dumb_function(char *str, int len);
+int		ft_buserror(void);
+
+#endif

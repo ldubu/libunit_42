@@ -1,20 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test_sigsegv.h                                     :+:      :+:    :+:   */
+/*   ft_buserror.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ldubuche <laura.dubuche@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/09 10:40:39 by ldubuche          #+#    #+#             */
-/*   Updated: 2022/01/09 10:42:30 by ldubuche         ###   ########.fr       */
+/*   Created: 2022/01/09 12:50:39 by ldubuche          #+#    #+#             */
+/*   Updated: 2022/01/09 15:35:23 by ldubuche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef TEST_SIGSEGV_H
-# define TEST_SIGSEGV_H
+#include <stdlib.h>
 
-# include <string.h>
+int	ft_buserror(void)
+{
+	char	*cptr;
+	int		*iptr;
 
-char	*ft_sigsegv(char *str);
-
-#endif
+	__asm__("pushf\norl $0x40000,(%rsp)\npopf");
+	cptr = malloc(sizeof(int) + 1);
+	iptr = (int *)++cptr;
+	*iptr = 42;
+	return (0);
+}
