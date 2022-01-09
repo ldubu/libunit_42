@@ -6,11 +6,11 @@
 /*   By: ldubuche <laura.dubuche@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/08 18:44:34 by ldubuche          #+#    #+#             */
-/*   Updated: 2022/01/08 18:46:08 by ldubuche         ###   ########.fr       */
+/*   Updated: 2022/01/09 21:05:33 by ldubuche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libft42/libft.h"
+#include "../libft/libft.h"
 #include "framework.h"
 
 void	load_test(t_unit_test **testlist, char *test_name,

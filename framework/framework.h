@@ -6,7 +6,7 @@
 /*   By: ldubuche <laura.dubuche@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/08 18:40:23 by ldubuche          #+#    #+#             */
-/*   Updated: 2022/01/09 15:43:59 by ldubuche         ###   ########.fr       */
+/*   Updated: 2022/01/09 21:04:48 by ldubuche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include <sys/wait.h>
-# include "../libft42/libft.h"
+# include "../libft/libft.h"
 
 typedef struct unit_test
 {

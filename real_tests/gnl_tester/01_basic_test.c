@@ -1,31 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   no_nl_line.c                                       :+:      :+:    :+:   */
+/*   01_basic_test.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lberrada <lberrada@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ldubuche <laura.dubuche@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/09 16:50:42 by ldubuche          #+#    #+#             */
-/*   Updated: 2022/01/09 17:26:33 by lberrada         ###   ########.fr       */
+/*   Updated: 2022/01/09 20:53:26 by ldubuche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "gnl_tester.h"
 
-int	no_nl_line(void)
+int	basic_test(void)
 {
 	int	res;
 	int	fd;
 
-	fd = open("Files/no_nl_line.txt", O_RDONLY);
-	if (fd <= 0)
+	fd = open(PATH_NAME"basic_test.txt", O_RDONLY);
+	if (fd < 0)
 		write(1, "fail to open file\n", 19);
-	res = test_compare(fd, "At suscipit aperiam et cupiditate dolores aut quam \
-	 odit non numquam nulla ut nesciunt omnis est placeat provident.");
+	res = test_compare(fd, "Bonjour,\n");
 	if (res == -1)
 		return (-1);
-	res = test_compare(fd, NULL);
+	res = test_compare(fd, "Je test un gnl\n");
+	if (res == -1)
+		return (-1);
+	res = test_compare(fd, "En revoir.\n");
 	if (res == -1)
 		return (-1);
 	return (0);
+	close(fd);
 }

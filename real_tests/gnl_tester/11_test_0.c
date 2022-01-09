@@ -1,26 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   11_test_0.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lberrada <lberrada@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ldubuche <laura.dubuche@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/09 16:44:27 by lberrada          #+#    #+#             */
-/*   Updated: 2022/01/09 17:28:15 by lberrada         ###   ########.fr       */
+/*   Created: 2022/01/09 16:50:42 by ldubuche          #+#    #+#             */
+/*   Updated: 2022/01/09 20:04:09 by ldubuche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "gnl_tester.h"
 
-int main()
+int	test_0(void)
 {
+	int	res;
+	int	fd;
 
-    multiple_lines();
-    special_line();
-    big_line();
-    test_empty();
-    test_first_empty();
-    multiple_nl();
-    no_nl_line();
-    one_nl();
+	fd = open(PATH_NAME"test_0.txt", O_RDONLY);
+	if (fd <= 0)
+		write(1, "fail to open file\n", 19);
+	res = test_compare(fd, "\\0");
+	if (res == -1)
+		return (-1);
+	close(fd);
+	return (0);
 }

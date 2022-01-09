@@ -6,11 +6,11 @@
 /*   By: ldubuche <laura.dubuche@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/08 14:49:49 by ldubuche          #+#    #+#             */
-/*   Updated: 2022/01/08 18:46:57 by ldubuche         ###   ########.fr       */
+/*   Updated: 2022/01/09 21:05:04 by ldubuche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libft42/libft.h"
+#include "../libft/libft.h"
 #include "framework.h"
 
 void	ft_delst(char *temp)

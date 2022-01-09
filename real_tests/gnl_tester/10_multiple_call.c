@@ -1,24 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   tests.h                                            :+:      :+:    :+:   */
+/*   10_multiple_call.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ldubuche <laura.dubuche@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/09 11:19:08 by ldubuche          #+#    #+#             */
-/*   Updated: 2022/01/09 21:05:25 by ldubuche         ###   ########.fr       */
+/*   Created: 2022/01/09 16:50:42 by ldubuche          #+#    #+#             */
+/*   Updated: 2022/01/09 20:03:35 by ldubuche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef TESTS_H
-# define TESTS_H
+#include "gnl_tester.h"
 
-# include <string.h>
-# include <stdlib.h>
-# include "../../framework/framework.h"
-# include "../../libft/libft.h"
-# include "../testeur.h"
+int	multiple_call(void)
+{
+	int	res;
+	int	fd;
 
-int	test_sigsegv(void);
-
-#endif
+	fd = open(PATH_NAME"one_nl.txt", O_RDONLY);
+	if (fd <= 0)
+		write(1, "fail to open file\n", 19);
+	res = test_compare(fd, "\n");
+	if (res == -1)
+		return (-1);
+	close(fd);
+	return (0);
+}

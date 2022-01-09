@@ -1,34 +1,23 @@
-#include "get_next_line.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ldubuche <laura.dubuche@gmail.com>         +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/01/09 16:44:27 by lberrada          #+#    #+#             */
+/*   Updated: 2022/01/09 20:49:58 by ldubuche         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-int main(void)
+#include "gnl_tester/gnl_tester.h"
+
+int	gnl_launcher(void);
+
+int	main(void)
 {
-    int     fd = open("gnlTester/files/41_with_nl", O_RDONLY);
-    char    *line;
-    if (fd <= 0)
-    write(1, "fail to open file", 17);
-    printf("fd = %d\n", fd);
-	line = get_next_line(fd);
-    while (line != NULL)
-    {
-        printf("%s", line);
-        free(line);
-		line = get_next_line(fd);
-    }
-    printf("%s", line);
-    line = get_next_line(fd);
-    printf("%s", line);
-    free(line);
-    line = get_next_line(fd);
-    printf("%s", line);
-    free(line);
-    line = get_next_line(fd);
-    printf("%s", line);
-    free(line);
-    line = get_next_line(fd);
-    printf("%s", line);
-    free(line);
-    line = get_next_line(fd);
-    printf("%s", line);
-    free(line);
-    return (0);
+	int	retour;
+
+	retour = gnl_launcher();
+	return (retour);
 }

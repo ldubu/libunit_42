@@ -23,24 +23,22 @@ CFLAGS =	-Wall -Werror -Wextra
 OBJ		=	$(SRC:.c=.o)
 
 .c.o:
-			@${CC} ${CFLAGS} -c $< -o ${<:.c=.o} -L. -lft
+	@${CC} ${CFLAGS} -c $< -o ${<:.c=.o} -L. -lft
 
 all: $(NAME)
 	
-$(NAME): $(OBJ) framework
-			@gcc $(FLAGS) $(OBJ) -o $(NAME) -L. -lunit
-			@./framework_test
+$(NAME): $(OBJ) compile 
+	@./framework_test
 
-framework:
-			@make -C ../framework
-			@cp ../framework/libunit.a ../tests
-		
+compile:
+	@cp ../libunit.a ./
+	@gcc $(FLAGS) $(OBJ) -o $(NAME) -L. -lunit
+	
 clean:
-			@$(RM) $(OBJ)
+	@$(RM) $(OBJ)
 
 fclean: clean
-			@$(RM) $(NAME) libunit.a
-			@make fclean -C ../framework
+	@$(RM) $(NAME) libunit.a
 
 re: fclean all
 

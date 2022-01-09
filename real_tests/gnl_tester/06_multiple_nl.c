@@ -1,27 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test_empty.c                                       :+:      :+:    :+:   */
+/*   06_multiple_nl.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lberrada <lberrada@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ldubuche <laura.dubuche@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/09 16:51:04 by lberrada          #+#    #+#             */
-/*   Updated: 2022/01/09 17:41:05 by lberrada         ###   ########.fr       */
+/*   Created: 2022/01/09 16:33:05 by ldubuche          #+#    #+#             */
+/*   Updated: 2022/01/09 20:01:43 by ldubuche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "gnl_tester.h"
 
-int	test_empty(void)
+int	multiple_nl(void)
 {
 	int	res;
+	int	i;
 	int	fd;
 
-	write(1, "Test empty file\n", 17);
-	fd = open("Files/empty_line.txt", O_RDONLY);
+	fd = open(PATH_NAME"multiple_nl.txt", O_RDONLY);
 	if (fd <= 0)
 		write(1, "fail to open file\n", 19);
-	printf("fd = %d\n", fd);
-	res = test_compare(fd, NULL);
-	return (res);
+	i = 0;
+	while (i++ < 4)
+	{
+		res = test_compare(fd, "\n");
+		if (res == -1)
+			return (-1);
+	}
+	close(fd);
+	return (0);
 }
