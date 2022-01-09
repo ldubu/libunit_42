@@ -18,22 +18,25 @@ SRC = 	framework_utils.c \
 OBJ =		$(SRC:.c=.o)
 
 .c.o:
-			@${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
+			@${CC} ${CFLAGS} -c $< -o ${<:.c=.o} -L. -lft
 			
-$(NAME): 	$(OBJ)
-			@ar rc $(NAME) $(OBJ)
+$(NAME): 	$(OBJ) libft
+			@ar rc $(NAME) $(OBJ) 
 
 
-all: 		$(NAME) libft
+all: 		$(NAME) 
 
 libft:
-			make -c ../libft42
-			mv libft.a ../framework
+			make -C ../libft42
+			cp ../libft42/libft.a .
+			mv libft.a $(NAME)
 clean:
 			@$(RM) $(OBJ)
+			@make clean -C ../libft42
 
 fclean:		clean
 			@$(RM) $(NAME)
+			@make fclean -C ../libft42
 
 re: 		fclean all
 

@@ -1,11 +1,12 @@
 #include "../../framework/framework.h"
 #include "../../libft42/libft.h"
-int	basic_test(void);
+#include "dumb_function.h"
 int ft_strlen_launcher(void)
 {
 	t_unit_test	*testlist;
 
-	load_test(&testlist, "Basic test", &basic_test);
+	load_test(&testlist, "Test OK", &test_ok);
+	load_test(&testlist, "Test KO", &test_ko);
 	launch_test(&testlist, "STRLEN");
 	return(1);
 }

@@ -6,7 +6,7 @@
 /*   By: ldubuche <laura.dubuche@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/08 18:16:54 by ldubuche          #+#    #+#             */
-/*   Updated: 2022/01/08 18:32:25 by ldubuche         ###   ########.fr       */
+/*   Updated: 2022/01/09 10:25:22 by ldubuche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,11 @@ int	launch_test(t_unit_test **testlist, char *function_name)
 			exit(EXIT_FAILURE);
 		}
 		if (c_pid == 0)
+		{
+			if ((*testlist)->f() == -1)
+				exit(1);
 			exit((*testlist)->f());
+		}
 		else
 		{
 			wait(&a);
