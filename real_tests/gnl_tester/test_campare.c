@@ -6,7 +6,6 @@ int test_compare(int fd, char *valeur_attendue)
     char *str;
 
     str = get_next_line(fd);
-    printf("%s\n", str);
     if (valeur_attendue == NULL)
     {
         if (str == NULL)
